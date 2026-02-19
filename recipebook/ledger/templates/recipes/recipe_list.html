@@ -3,7 +3,7 @@
 {% block content %}
 {% for recipe in recipes %}
 <div>
-  <a href="{{recipe.link}}">
+  <a href="{{recipe.get_absolute_url}}">
     {{ recipe.name }}
   </a>
 </div>
