@@ -20,7 +20,7 @@ def validate_bio_length(value):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-    short_bio = models.TextField(blank=True, validators=[validate_bio_length])
+    short_bio = models.TextField(validators=[validate_bio_length])
 
 
 class Ingredient(models.Model):
