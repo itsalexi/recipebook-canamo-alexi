@@ -3,6 +3,10 @@
 {% block content %}
 <h2>Recipe List</h2>
 
+{% if user.is_authenticated %}
+<a href="{% url 'ledger:recipe-create' %}">Create a recipe</a>
+{% endif %}
+
 {% for recipe in recipes %}
 <div>
   <a href="{{recipe.get_absolute_url}}">

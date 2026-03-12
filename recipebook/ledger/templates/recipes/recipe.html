@@ -2,14 +2,17 @@
 {% load static %}
 {% block content %}
 <h2>Recipe Details</h2>
-<h3>{{name}} by {{author}}</h2>
-  {% for image in images %}
-  {% if image %}
-  <img src="{{ image.image.url }}" alt="{{ image.image.description }}">
-  {% endif %} {% endfor %}
-  <ul>
-    {% for ingredient in ingredients %}
-    <li>{{ingredient}}</li>
-    {% endfor %}
-  </ul>
-  {% endblock %}
+<h3>{{ recipe.name }} by {{ recipe.author.name }}</h3>
+{% if user.is_authenticated %}
+<a href="{% url 'ledger:recipe-add-image' recipe.pk %}">Upload a new image</a>
+{% endif %}
+{% for image in images %}
+{% if image.image %}
+<img src="{{ image.image.url }}" alt="{{ image.description }}">
+{% endif %} {% endfor %}
+<ul>
+  {% for ingredient in ingredients %}
+  <li>{{ingredient}}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
