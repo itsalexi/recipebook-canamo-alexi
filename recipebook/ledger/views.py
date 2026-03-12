@@ -53,6 +53,7 @@ def recipe_add_image(request, pk):
     return render(request, "./recipes/recipe_image_form.html", ctx)
 
 
+@login_required
 def recipe(request, pk):
     recipe = Recipe.objects.get(pk=pk)
     ingredients = recipe.ingredients.all()
