@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 from dotenv import load_dotenv
+
+
 import os
 
 load_dotenv()
@@ -126,3 +128,5 @@ STATIC_URL = 'static/'
 LOGIN_REDIRECT_URL = '/recipes/list'
 LOGOUT_REDIRECT_URL = '/accounts/login'
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+MEDIA_ROOT = BASE_DIR/'media'
+MEDIA_URL = '/media/'

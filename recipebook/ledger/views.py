@@ -15,6 +15,9 @@ def recipe_list(request):
 def recipe(request, name):
     recipe = Recipe.objects.get(name=name)
     ingredients = recipe.ingredients.all()
+    images = recipe.image.all()
+
     ctx = {'name': str(recipe), 'ingredients': ingredients,
-           'author': recipe.author.name}
+           'author': recipe.author.name, 'images': images}
+
     return render(request, "./recipes/recipe.html", ctx)
